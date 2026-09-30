@@ -134,3 +134,80 @@ console.log(`Quantity Type: ${quantityType}`);
 console.log(`Coupon Owner: ${owner}`);
 
 console.log("========================");
+
+
+
+
+
+const numbers = [12,15,5,18,9,3];
+let largestNumber = numbers[0];
+let smallestNumber = numbers[0];
+let primeNumbers = [];
+let sum =0;
+let evenCount = 0;
+let oddCount = 0;
+let avg ;
+
+for (let i =0; i <numbers.length; i++){
+    let numb = numbers[i];
+    if (numb > largestNumber ){
+        largestNumber = numb;
+    }
+
+    if (numb < smallestNumber){
+        smallestNumber = numb;
+    }
+
+
+    
+    sum = sum + numb;
+
+
+    avg = sum / numbers.length;
+
+
+    if (numb % 2 ===0){
+    evenCount++;
+    }
+    else {
+    oddCount++;
+    }
+
+    let isPrime = true;
+    if (numb < 2){
+    isPrime = false;
+    }
+    else {
+        for (let j=2; j < numb; j++){
+            if (numb % j ===0){
+            isPrime = false;
+            break;
+            }
+        
+        }
+    }
+    if (isPrime){
+        primeNumbers.push(numb);
+    }
+}
+
+const numberList = numbers.join(", ");
+const primeList = primeNumbers.join(", ");
+
+
+console.log("================================");
+console.log("           REPORT");
+console.log("================================");
+console.log(`Numbers: ${numberList}`);
+
+console.log(`Largest: ${largestNumber}`);
+console.log(`Smallest: ${smallestNumber}`);
+console.log(`Sum: ${sum}`);
+console.log(`Average: ${avg.toFixed(2)}`);
+
+console.log(`Even Numbers: ${evenCount}`);
+console.log(`Odd Numbers: ${oddCount}`);
+
+console.log(`Prime Numbers: ${primeList}`);
+
+console.log("================================");
