@@ -45,3 +45,92 @@ console.log("Percentage:", `${percentage}`+ "%");
 console.log("Grade:", grade);
 console.log("Status:", Status);
 }
+
+
+
+
+// Example 2
+
+const customerName = "  Noman  ";
+const itemName = "laptop";
+const price = 80000;
+const quantity = 2;
+const discountCode = "SAVE10";
+
+const cleanName = customerName.trim();
+const displayItem = itemName.toUpperCase();
+
+const totalPrice = price * quantity;
+
+let discountPercentage;
+
+switch(discountCode){
+    case "SAVE10":
+        discountPercentage = 10;
+        break;
+    case "SAVE20":
+        discountPercentage = 20;
+        break;
+    case "SAVE30":
+        discountPercentage = 30;
+        break;
+    case "SAVE40":
+        discountPercentage = 40;
+        break;
+    case "SAVE50":
+        discountPercentage= 50;
+        break;
+    case "NONE":
+        discountPercentage = 0;
+        break;
+    default:
+        discountPercentage = 0;
+}
+
+
+const discountAmount = price * discountPercentage/100;
+
+const finalPrice = totalPrice - discountAmount;
+
+let category;
+
+if (finalPrice >= 100000) {
+    category = "Expensive Purchase";
+} else {
+    category = "Normal Purchase";
+}
+
+for (let i= 1; i <=quantity; i++){
+    console.log(`Item ${i}: ${displayItem}`);
+}
+
+let quantityType;
+
+if (quantity % 2 === 0) {
+    quantityType = "Even";
+} else {
+    quantityType = "Odd";
+}
+
+const couponOwner = null;
+const owner = couponOwner ?? "Guest";
+
+
+// 10. Final output
+console.log("\n========================");
+console.log("      SHOPPING BILL");
+console.log("========================");
+
+console.log(`Customer: ${cleanName}`);
+console.log(`Item: ${displayItem}`);
+console.log(`Price: Rs ${price}`);
+console.log(`Quantity: ${quantity}`);
+console.log(`Total: Rs ${totalPrice}`);
+console.log(`Discount: ${discountPercentage}%`);
+console.log(`Discount Amount: Rs ${discountAmount}`);
+console.log(`Final Price: Rs ${finalPrice.toFixed(2)}`);
+console.log(`Category: ${category}`);
+console.log(`Quantity Type: ${quantityType}`);
+console.log(`Coupon Owner: ${owner}`);
+
+console.log("========================");
